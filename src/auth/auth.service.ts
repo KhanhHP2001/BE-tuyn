@@ -47,7 +47,7 @@ export class AuthService {
         userData.email,
       );
 
-      return { accessToken: token, user: userData };
+      return { token, user: userData };
     } catch (err) {
       throw new HttpException(err, HttpStatus.FORBIDDEN);
     }

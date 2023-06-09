@@ -1,10 +1,11 @@
 import { Controller, Get, Post, Body, Patch, Param, Query, UseGuards } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { JwtAuthGuard } from 'src/auth/auth_guard/auth_guard.guard';
 
+@ApiBearerAuth()
 @ApiTags('Users')
 @UseGuards(JwtAuthGuard)
 @Controller('users')

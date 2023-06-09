@@ -8,7 +8,7 @@ import { jsonWebToken } from '../env-variables';
 export class JWTStrategy extends PassportStrategy(Strategy) {
     constructor() {
         super({
-            jwtFromRequest: ExtractJwt.fromHeader("access_token"),
+            jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
             ignoreExpiration: false,
             secretOrKey: jsonWebToken.secretKey,
         })
